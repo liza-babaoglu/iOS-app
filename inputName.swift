@@ -1,6 +1,6 @@
 //
 //  inputName.swift
-//  FlourishedName
+//  FlourishedWords
 //
 //  Created by Liza Babaoglu on 2020-08-12.
 //  Copyright © 2020 Liza Babaoglu. All rights reserved.
@@ -40,14 +40,11 @@ class inputName: UIViewController {
         loadView()
     }
     
-    @IBAction func purple(_ sender: UIButton) {
-        self.view.backgroundColor = UIColor.cyan
-    }
     
     @IBAction func inputting(_ nameTextField: UITextField) {
     
         let alphabet: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZՀՈԳԻՍԼԶԱ" //ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋ
-        var set: [[String]] = [["Adventurous"]]//...not showing in the video
+        var set: [[String]] = [["Adventurous"]]//...I am not sharing the entire set in my youtube video or in this github repo. //2D array
         
         
         var letterIndex: Int = 0
@@ -57,11 +54,13 @@ class inputName: UIViewController {
         
         nameTextField.text! = nameTextField.text!.uppercased()
 
+        //for every character in the entry, check each letter in the alphabet sets till a match.
+        //the matched index of the alphabet sets is also the x-index of the 2D array of descriptive words.
         for char in nameTextField.text!{
             letterIndex = 0
             if used.contains(char){
                 setWord += 1
-                if setWord > 4 { //0 1 2 3 4 indexes
+                if setWord > 4 { //y-index of the 2D array.
                     setWord = 0
                 }
             }
@@ -70,7 +69,7 @@ class inputName: UIViewController {
                     myFirstLabel = UILabel()
                     letterLabel = UILabel()
                     letterLabel.text = "\(char)" //acts like string
-                    myFirstLabel.text = ": \(set[letterIndex][setWord])" //very very low chance of getting the same word for the same letter
+                    myFirstLabel.text = ": \(set[letterIndex][setWord])" 
                     letterLabel.font = UIFont.systemFont(ofSize: 20)
                     myFirstLabel.font = UIFont.systemFont(ofSize: 20)
                     letterLabel.center = CGPoint(x:60, y:90+position)
@@ -87,7 +86,7 @@ class inputName: UIViewController {
                     letterIndex += 1
                 }
             }
-            position = position + 22 //remove hard coding: make 100 based on the total number of characters and the spce you have
+            position = position + 22 
         }
 
     }
