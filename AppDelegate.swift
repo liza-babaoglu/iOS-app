@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FlourishedName
+//  FlourishedWords
 //
 //  Created by Liza Babaoglu on 2020-08-12.
 //  Copyright © 2020 Liza Babaoglu. All rights reserved.
